@@ -1,1 +1,72 @@
-<p>job-card works!</p>
+<div
+  class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+>
+  <!-- Company -->
+
+  <div class="mb-4 flex items-center gap-4">
+    <div
+      class="flex h-14 w-14 items-center justify-center rounded-full bg-indigo-100 text-xl font-bold text-indigo-700"
+    >
+      {{ job().company.charAt(0) }}
+    </div>
+
+    <div>
+      <h2 class="text-xl font-semibold text-slate-900">
+        {{ job().title }}
+      </h2>
+
+      <p class="text-slate-500">
+        {{ job().company }}
+      </p>
+    </div>
+  </div>
+
+  <!-- Location -->
+
+  <div class="mb-3">
+    <span class="rounded-full bg-slate-100 px-3 py-1 text-sm"> 📍 {{ job().location }} </span>
+  </div>
+
+  <!-- Job Type -->
+
+  <div class="mb-3">
+    <span class="rounded-full bg-indigo-100 px-3 py-1 text-sm text-indigo-700">
+      {{ job().jobType }}
+    </span>
+  </div>
+
+  <!-- Experience -->
+
+  <div class="mb-3">
+    Experience
+
+    <strong>
+      {{ job().experience }}
+    </strong>
+  </div>
+
+  <!-- Salary -->
+
+  <div class="mb-5">
+    <p class="text-lg font-bold text-emerald-600">₹ {{ job().salary | number }}</p>
+  </div>
+
+  <!-- Skills -->
+
+  <div class="mb-6 flex flex-wrap gap-2">
+    @for (skill of job().skills; track skill) {
+      <span class="rounded-full bg-slate-100 px-3 py-1 text-sm">
+        {{ skill }}
+      </span>
+    }
+  </div>
+
+  <!-- Button -->
+
+  <a
+    [routerLink]="['/jobs', job().id]"
+    class="block rounded-xl bg-indigo-600 py-3 text-center font-medium text-white transition hover:bg-indigo-700"
+  >
+    View Details
+  </a>
+</div>

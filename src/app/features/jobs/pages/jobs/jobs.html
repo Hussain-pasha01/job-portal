@@ -1,27 +1,15 @@
-<div class="container mx-auto py-10">
-  <h1 class="mb-8 text-4xl font-bold">Jobs</h1>
+<div class="container mx-auto py-12">
+  <h1 class="mb-8 text-4xl font-bold">Find Jobs</h1>
 
-  @if (jobs().length === 0) {
-    <p>No jobs available.</p>
+  <app-search-bar [search]="search()" (searchChange)="updateSearch($event)"> </app-search-bar>
+
+  @if (filteredJobs().length === 0) {
+    <div class="rounded-xl bg-red-50 p-8 text-center">No jobs found.</div>
 
   } @else {
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      @for (job of jobs(); track job.id) {
-        <div class="rounded-xl border bg-white p-6 shadow">
-          <h2 class="text-xl font-semibold">
-            {{ job.title }}
-          </h2>
-
-          <p>
-            {{ job.company }}
-          </p>
-
-          <p>
-            {{ job.location }}
-          </p>
-
-          <p>₹ {{ job.salary }}</p>
-        </div>
+    <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      @for (job of filteredJobs(); track job.id) {
+        <app-job-card [job]="job"> </app-job-card>
       }
     </div>
   }

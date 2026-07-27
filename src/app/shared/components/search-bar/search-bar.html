@@ -1,1 +1,9 @@
-<p>search-bar works!</p>
+<div class="mb-8">
+  <input
+    type="text"
+    [value]="search()"
+    (input)="onSearch($event)"
+    placeholder="Search jobs, company or skills..."
+    class="w-full rounded-xl border border-slate-300 px-5 py-4 outline-none transition focus:border-indigo-600"
+  />
+</div>
