@@ -23,7 +23,8 @@ export const routes: Routes = [
     component: SavedJobs
   },
   {
-    path: '**',
-    redirectTo: ''
+    path:'',
+    redirectTo:'jobs',
+    pathMatch:'full'
   }
 ];

@@ -1,5 +1,82 @@
 {
-  "jobs": [],
-  "companies": [],
-  "categories": []
+  "jobs": [
+    {
+      "id": 1,
+      "title": "Angular Developer",
+      "companyId": 1,
+      "company": "Google",
+      "location": "Hyderabad",
+      "salary": 1200000,
+      "experience": "1-3 Years",
+      "jobType": "Full Time",
+      "skills": ["Angular", "TypeScript", "RxJS"],
+      "description": "Develop enterprise Angular applications.",
+      "requirements": ["Angular", "TypeScript", "REST APIs"],
+      "postedDate": "2026-07-25",
+      "logo": "google.png"
+    },
+    {
+      "id": 2,
+      "title": "Frontend Engineer",
+      "companyId": 2,
+      "company": "Microsoft",
+      "location": "Bengaluru",
+      "salary": 1800000,
+      "experience": "2-5 Years",
+      "jobType": "Hybrid",
+      "skills": ["Angular", "JavaScript", "CSS"],
+      "description": "Build scalable frontend applications.",
+      "requirements": ["Angular", "JavaScript"],
+      "postedDate": "2026-07-24",
+      "logo": "microsoft.png"
+    },
+    {
+      "id": 3,
+      "title": "Full Stack Developer",
+      "companyId": 3,
+      "company": "Amazon",
+      "location": "Chennai",
+      "salary": 1500000,
+      "experience": "2-4 Years",
+      "jobType": "Remote",
+      "skills": ["Angular", "Node.js", "MongoDB"],
+      "description": "Work on frontend and backend systems.",
+      "requirements": ["Angular", "Node.js"],
+      "postedDate": "2026-07-23",
+      "logo": "amazon.png"
+    }
+  ],
+
+  "companies": [
+    {
+      "id": 1,
+      "name": "Google",
+      "logo": "google.png"
+    },
+    {
+      "id": 2,
+      "name": "Microsoft",
+      "logo": "microsoft.png"
+    },
+    {
+      "id": 3,
+      "name": "Amazon",
+      "logo": "amazon.png"
+    }
+  ],
+
+  "categories": [
+    {
+      "id": 1,
+      "name": "Frontend"
+    },
+    {
+      "id": 2,
+      "name": "Backend"
+    },
+    {
+      "id": 3,
+      "name": "Full Stack"
+    }
+  ]
 }
