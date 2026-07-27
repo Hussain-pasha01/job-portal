@@ -1,9 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { map, switchMap } from 'rxjs';
+import { DecimalPipe } from '@angular/common';
+
+
+import { JobService } from '../../../../core/services/job.service';
 
 @Component({
   selector: 'app-job-details',
-  imports: [],
+  standalone: true,
+  imports: [RouterLink, DecimalPipe],
   templateUrl: './job-details.html',
-  styleUrl: './job-details.css',
+  styleUrl: './job-details.css'
 })
-export class JobDetails {}
+export class JobDetails {
+
+  private route = inject(ActivatedRoute);
+  private jobService = inject(JobService);
+
+  job = toSignal(
+    this.route.paramMap.pipe(
+      map(params => Number(params.get('id'))),
+      switchMap(id => this.jobService.getJob(id))
+    ),
+    {
+      initialValue: null
+    }
+  );
+
+}

@@ -1,16 +1,34 @@
 <div class="container mx-auto py-12">
-  <h1 class="mb-8 text-4xl font-bold">Find Jobs</h1>
+  <h1 class="mb-8 text-4xl font-bold">Find Your Dream Job</h1>
 
   <app-search-bar [search]="search()" (searchChange)="updateSearch($event)"> </app-search-bar>
 
-  @if (filteredJobs().length === 0) {
-    <div class="rounded-xl bg-red-50 p-8 text-center">No jobs found.</div>
+  <div class="mt-8 grid gap-8 lg:grid-cols-4">
+    <aside>
+      <app-filter-sidebar
+        [location]="location()"
+        [jobType]="jobType()"
+        (locationChange)="updateLocation($event)"
+        (jobTypeChange)="updateJobType($event)"
+      >
+      </app-filter-sidebar>
+    </aside>
 
-  } @else {
-    <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-      @for (job of filteredJobs(); track job.id) {
-        <app-job-card [job]="job"> </app-job-card>
+    <section class="lg:col-span-3">
+      <div class="mb-6 flex justify-end">
+        <app-sort-dropdown [sort]="sort()" (sortChange)="updateSort($event)"> </app-sort-dropdown>
+      </div>
+
+      @if (filteredJobs().length === 0) {
+        <div class="rounded-xl bg-slate-100 p-10 text-center">No jobs found.</div>
+
+      } @else {
+        <div class="grid gap-6 md:grid-cols-2">
+          @for (job of filteredJobs(); track job.id) {
+            <app-job-card [job]="job"> </app-job-card>
+          }
+        </div>
       }
-    </div>
-  }
+    </section>
+  </div>
 </div>

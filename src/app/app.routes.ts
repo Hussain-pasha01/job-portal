@@ -17,7 +17,7 @@ export const routes: Routes = [
   {
     path: 'jobs/:id',
     component: JobDetails
-  },
+    },
   {
     path: 'saved',
     component: SavedJobs

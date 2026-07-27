@@ -1,1 +1,31 @@
-<p>filter-sidebar works!</p>
+<div class="space-y-6 rounded-xl border bg-white p-5">
+  <div>
+    <label class="mb-2 block font-medium"> Location </label>
+
+    <select
+      class="w-full rounded-lg border p-2"
+      [value]="location()"
+      (change)="onLocationChange($event)"
+    >
+      <option value="">All</option>
+      <option>Hyderabad</option>
+      <option>Bengaluru</option>
+      <option>Chennai</option>
+    </select>
+  </div>
+
+  <div>
+    <label class="mb-2 block font-medium"> Job Type </label>
+
+    <select
+      class="w-full rounded-lg border p-2"
+      [value]="jobType()"
+      (change)="onJobTypeChange($event)"
+    >
+      <option value="">All</option>
+      <option>Full Time</option>
+      <option>Remote</option>
+      <option>Hybrid</option>
+    </select>
+  </div>
+</div>

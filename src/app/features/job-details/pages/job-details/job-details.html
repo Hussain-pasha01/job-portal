@@ -1,1 +1,66 @@
-<p>job-details works!</p>
+@if (job()) {
+  <div class="container mx-auto py-12">
+    <a routerLink="/jobs" class="mb-8 inline-block text-indigo-600 hover:underline">
+      ← Back to Jobs
+    </a>
+
+    <div class="rounded-2xl bg-white p-8 shadow">
+      <h1 class="mb-3 text-4xl font-bold">
+        {{ job()!.title }}
+      </h1>
+
+      <p class="mb-6 text-lg text-slate-600">
+        {{ job()!.company }}
+      </p>
+
+      <div class="mb-6 flex flex-wrap gap-3">
+        <span class="rounded-full bg-indigo-100 px-4 py-2 text-indigo-700">
+          {{ job()!.jobType }}
+        </span>
+
+        <span class="rounded-full bg-slate-100 px-4 py-2"> 📍 {{ job()!.location }} </span>
+
+        <span class="rounded-full bg-emerald-100 px-4 py-2 text-emerald-700">
+          ₹ {{ job()!.salary | number }}
+        </span>
+      </div>
+
+      <div class="mb-8">
+        <h2 class="mb-3 text-2xl font-semibold">Description</h2>
+
+        <p class="text-slate-600">
+          {{ job()!.description }}
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h2 class="mb-3 text-2xl font-semibold">Requirements</h2>
+
+        <ul class="list-disc pl-6">
+          @for (req of job()!.requirements; track req) {
+            <li>{{ req }}</li>
+          }
+        </ul>
+      </div>
+
+      <div class="mb-8">
+        <h2 class="mb-3 text-2xl font-semibold">Skills</h2>
+
+        <div class="flex flex-wrap gap-3">
+          @for (skill of job()!.skills; track skill) {
+            <span class="rounded-full bg-slate-100 px-4 py-2">
+              {{ skill }}
+            </span>
+          }
+        </div>
+      </div>
+
+      <button class="rounded-xl bg-indigo-600 px-6 py-3 font-medium text-white hover:bg-indigo-700">
+        Save Job
+      </button>
+    </div>
+  </div>
+
+} @else {
+  <div class="container mx-auto py-16 text-center">Loading job...</div>
+}

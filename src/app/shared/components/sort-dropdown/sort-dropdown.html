@@ -1,1 +1,5 @@
-<p>sort-dropdown works!</p>
+<select class="rounded-lg border p-2" [value]="sort()" (change)="onSortChange($event)">
+  <option value="latest">Latest</option>
+  <option value="salary">Salary</option>
+  <option value="company">Company</option>
+</select>
