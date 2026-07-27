@@ -6,6 +6,7 @@ import { DecimalPipe } from '@angular/common';
 
 
 import { JobService } from '../../../../core/services/job.service';
+import { SavedJobService } from '../../../../core/services/saved-job.service';
 
 @Component({
   selector: 'app-job-details',
@@ -28,5 +29,14 @@ export class JobDetails {
       initialValue: null
     }
   );
+
+  //saved job
+  savedJobService = inject(SavedJobService);
+
+  toggleSaved() {
+    if (this.job()) {
+      this.savedJobService.toggle(this.job()!.id);
+    }
+  }
 
 }

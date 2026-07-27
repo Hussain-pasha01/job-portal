@@ -55,12 +55,18 @@
         </div>
       </div>
 
-      <button class="rounded-xl bg-indigo-600 px-6 py-3 font-medium text-white hover:bg-indigo-700">
-        Save Job
+      <button
+        (click)="toggleSaved()"
+        class="rounded-xl bg-indigo-600 px-6 py-3 text-white hover:bg-indigo-700"
+      >
+        @if (savedJobService.isSaved(job()!.id)) {
+          Remove Bookmark
+        } @else {
+          Save Job
+        }
       </button>
     </div>
   </div>
-
 } @else {
   <div class="container mx-auto py-16 text-center">Loading job...</div>
 }
